@@ -1,0 +1,83 @@
+body{
+    background-color: #0a1539;
+    margin: 0;
+}
+
+.navBar{
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .nav{
+        display: flex;
+        align-items: center;
+        justify-content: right;
+
+
+        .navItem{
+            padding-left: 2rem;
+            padding-right: 2rem;
+            margin: 0;
+            font-family: Raleway,sans-serif;
+            font-weight: 600;
+
+            a{
+                color: white;
+                text-decoration: none;
+            }
+
+            :hover{
+                text-shadow: white 2px 0 10px;
+            }
+
+        }
+
+
+    }
+    
+}
+
+.heroImg{
+   
+    
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+
+
+.trendWrap{
+
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+
+    h1{
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        color: white;
+        font-size: 3rem;
+    }
+
+    .trending{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.card{
+    height: 25rem;
+    width: 15rem;
+    background-color: gray;
+    margin: 1%;
+    border-radius: 15px;
+    transition: background-color 0.5s ease;
+    transition: box-shadow 0.1s ease;
+    cursor: pointer;
+}
