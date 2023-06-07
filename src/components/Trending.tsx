@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { CardListHP } from "./HomeCards/CardList";
+import axios from "axios";
 
 
 export const Trending = () => {
@@ -9,13 +10,21 @@ export const Trending = () => {
 
     useEffect( () => {
         const fetchData = async () => {
-            const dataFetched = await fetch('http://localhost:5000/all');
-            setData(await dataFetched.json());
+
+            try{
+
+                const dataFetched = await axios.get('http://localhost:5000/all');
+                setData(dataFetched.data);
+            }
+            catch(e){
+                console.log(e);
+            }
+            
           }
 
-        fetchData();
+        fetchData()
         
-    });
+    },[]);
 
 
     return (
@@ -23,7 +32,7 @@ export const Trending = () => {
 
             <div className="trendWrap">
 
-            <h1 style={{fontFamily: "Raleway,sans-serif"}}>Our Fighters</h1>
+            <h1 style={{fontFamily: "Raleway,sans-serif", marginBottom:"10rem" }}>Our Fighters</h1>
 
             <div>
 

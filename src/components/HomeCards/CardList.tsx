@@ -8,7 +8,7 @@ export const CardListHP = ({ data }) => {
 
     return (
         <>
-          <div style={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "row", width: "100%"}} >
+          <div className="grid grid-cols-4 justify-center" >
           {data.map((e) => (
           <Cards key={e._id} title={e.Name} img={imglink} id={e._id} />
       ))}
