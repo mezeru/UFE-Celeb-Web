@@ -32,7 +32,7 @@ export const Trending = () => {
 
             <div className="trendWrap">
 
-            <h1 style={{fontFamily: "Raleway,sans-serif", marginBottom:"10rem" }}>Our Fighters</h1>
+            <h1 style={{fontFamily: "Raleway,sans-serif", marginBottom:"10rem" }}>OUR FIGHTERS</h1>
 
             <div>
 

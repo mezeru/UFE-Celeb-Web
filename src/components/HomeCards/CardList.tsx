@@ -8,9 +8,9 @@ export const CardListHP = ({ data }) => {
 
     return (
         <>
-          <div className="grid grid-cols-4 justify-center" >
+          <div className="grid grid-cols-3 gap-10 justify-items-center mx-12 " >
           {data.map((e) => (
-          <Cards key={e._id} title={e.Name} img={imglink} id={e._id} />
+          <Cards key={e._id} title={e.Name} desc={e.Description} img={imglink} id={e._id} />
       ))}
           </div>
         </>
