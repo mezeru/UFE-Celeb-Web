@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar } from './NavBar';
+import sha256 from 'crypto-js/sha256';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,6 +13,7 @@ const Login = () => {
     console.log('Login form submitted');
     console.log('Email:', email);
     console.log('Password:', password);
+    console.log(sha256);
   };
 
   return (
