@@ -2,18 +2,29 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar } from './NavBar';
 import sjcl from "sjcl";
+import axios from 'axios';
 
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Add your login logic here
     const myBitArray = sjcl.hash.sha256.hash(password);
     const myHash = sjcl.codec.hex.fromBits(myBitArray);
-    console.log(myHash);
+    
+    const resp = await axios.post("http://localhost:5000/login", {
+      "Email": email,
+      "Password": password
+    });
+
+    if( resp.status == 200){
+      console.log(resp.data.token);
+    }
+    
+
 
   };
 
