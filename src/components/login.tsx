@@ -21,7 +21,7 @@ const Login = () => {
     });
 
     if( resp.status == 200){
-      console.log(resp.data.token);
+      localStorage.setItem('token', resp.data.token);
     }
     
 
