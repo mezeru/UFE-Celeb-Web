@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar } from './NavBar';
-import sha256 from 'crypto-js/sha256';
+import sjcl from "sjcl";
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -10,10 +11,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your login logic here
-    console.log('Login form submitted');
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log(sha256);
+    const myBitArray = sjcl.hash.sha256.hash(password);
+    const myHash = sjcl.codec.hex.fromBits(myBitArray);
+    console.log(myHash);
+
   };
 
   return (
