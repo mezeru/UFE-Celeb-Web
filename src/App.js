@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import { Experiences } from "./components/Experiences";
 import Login from "./components/login";
 import SignUp from "./components/SignUp";
+import { Auth } from "./scripts/Auth";
 
 export function App() {
     return (
@@ -11,7 +12,7 @@ export function App() {
       <BrowserRouter>
         <Routes>
           <Route index path='/' element={<Home />}  />
-          <Route path='/services/:id' element={<Experiences />}  />
+          <Route path='/services/:id' element={<Auth><Experiences /></Auth>}  />
           <Route path='/login' element={<Login />}  />
           <Route path='/signup' element={<SignUp />}  />
         </Routes>
