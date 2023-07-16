@@ -57,7 +57,7 @@ const SignUp = () => {
           <div className='flex flex-col mx-2'>
                 <label className='text-sm'>Name</label>
                 <input
-                className='my-2 bg-zinc-600 p-2 rounded-sm'
+                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
                 type="name"
                 placeholder="Name"
                 value={name}
@@ -71,7 +71,7 @@ const SignUp = () => {
                 type="email"
                 placeholder="Email"
                 value={email}
-                className='my-2 bg-zinc-600 p-2 rounded-sm'
+                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
                 onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
@@ -87,7 +87,7 @@ const SignUp = () => {
                 type="password"
                 placeholder="Password"
                 value={password}
-                className='my-2 bg-zinc-600 p-2 rounded-sm'
+                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
                 onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
@@ -98,7 +98,7 @@ const SignUp = () => {
                 type="password"
                 placeholder="Password"
                 value={confirm}
-                className='my-2 bg-zinc-600 p-2 rounded-sm'
+                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
                 onChange={(e) => setConfirm(e.target.value)}
                 />
             </div>
@@ -115,7 +115,7 @@ const SignUp = () => {
                 type="number"
                 placeholder="123-456-7890"
                 value={phone}
-                className='my-2 bg-zinc-600 p-2 rounded-sm'
+                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
                 onChange={(e) => setPhone(e.target.value)}
                 />
             </div>

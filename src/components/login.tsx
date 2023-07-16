@@ -22,6 +22,7 @@ const Login = () => {
 
     if( resp.status == 200){
       localStorage.setItem('token', resp.data.token);
+      console.log(localStorage.getItem('token'));
     }
     
 
@@ -38,7 +39,7 @@ const Login = () => {
             <div className='flex flex-col my-2'>
                 <label className='text-sm'>Email</label>
                 <input
-                className='my-2 bg-zinc-600 p-2 rounded-sm'
+                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -52,7 +53,7 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 value={password}
-                className='my-2 bg-zinc-600 p-2 rounded-sm'
+                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
                 onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
