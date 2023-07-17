@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 export const Navbar = () => {
 
+
+
     return (
         <>
         <div className="navBar">
@@ -24,6 +26,10 @@ export const Navbar = () => {
                 <div className="navItem">
                     <Link to={`/login`}>LOGIN</Link>
                 </div>
+                <div className="navItem">
+                    <Link to={`/User/64b1e698ce439cd7b32eac11`}>PROFILE</Link>
+                </div>
+                
             </div>
         </div>
         </>

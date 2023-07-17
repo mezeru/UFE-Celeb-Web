@@ -1,35 +1,66 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { Navbar } from './NavBar';
 import axios from 'axios';
 import sjcl from "sjcl";
 
-const SignUp = () => {
+export const UserProfile = () => {
   const [gender, setGender] = useState('');
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirm, setConfirm] = useState('');
+
+  const token = localStorage.getItem('token');
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    
+    const getUser = async () => {
+
+        try{
+            const data = await axios.get(`http://localhost:5000/User?id=${id}`,{
+                headers:{
+                    Authorization: token
+                }
+            });
+
+            setPhone(data.data.Phonenumber);
+            setName(data.data.Name);
+            setEmail(data.data.Email);
+
+            console.log(phone,name,email)
+
+        }
+        catch(e){
+            console.log(e);
+        }
+
+        
+        
+    }
+
+    getUser();
+
+
+  },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if(password === confirm){
-
-      const myBitArray = sjcl.hash.sha256.hash(password);
-    const myHash = sjcl.codec.hex.fromBits(myBitArray);
-
-
     try{
-      await axios.post("http://localhost:5000/newUser",
+      await axios.put(`http://localhost:5000/User?id=${"64b1e698ce439cd7b32eac11"}`,
       {
         "Name": name,
         "Gender":"M",
         "Phonenumber": phone,
-        "Email": email,
-        "Password": myHash
-         }
+        "Email": email
+        },
+        {
+            headers:{
+                Authorization: token,
+                "Content-Type": "application/json"
+            }
+        }
       )
 
     }
@@ -40,7 +71,7 @@ const SignUp = () => {
       
 
 
-    }
+    
 
   };
 
@@ -48,7 +79,7 @@ const SignUp = () => {
     <div>
     <div className='flex flex-col justify-center items-center m-10'>
         <div className='flex flex-col justify-center items-center m-10 bg-white rounded-md p-5'>
-        <h2 className='text-3xl' >Sign Up</h2>
+        <h2 className='text-3xl' >User Data</h2>
         <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center wd-1/2'>
 
           <div className='flex flex-row m-5'>
@@ -76,34 +107,6 @@ const SignUp = () => {
             </div>
 
           </div>
-
-
-          <div  className='flex flex-row my-3'>
-
-          <div className='flex flex-col mx-2'>
-                <label className='text-sm'>Password</label>
-                <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
-                onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
-
-            <div className='flex flex-col mx-2'>
-                <label className='text-sm'>Confirm Password</label>
-                <input
-                type="password"
-                placeholder="Password"
-                value={confirm}
-                className='my-2 bg-zinc-600 p-2 rounded-sm text-white'
-                onChange={(e) => setConfirm(e.target.value)}
-                />
-            </div>
-          
-          
-          </div>  
 
 
           <div className='flex flex-row m-5'>
@@ -137,15 +140,11 @@ const SignUp = () => {
 
             
 
-            <button className='bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded-sm' type="submit">Sign Up</button>
+            <button className='bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded-sm' type="submit">Update</button>
         </form>
-
-        <Link className='text-blue-800 text-xs m-2' to={`/login`}>Login</Link>
         
         </div>
     </div>
     </div>
   );
 };
-
-export default SignUp;

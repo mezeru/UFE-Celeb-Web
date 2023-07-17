@@ -26,7 +26,6 @@ export const Experiences = () => {
     return(
 
         <>
-        <Navbar></Navbar>
 
         {data && <FighterCard Name={data?.Name} Gender={data?.Gender} />}
 

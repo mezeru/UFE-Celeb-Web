@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Navbar } from './NavBar';
 import sjcl from "sjcl";
 import axios from 'axios';
@@ -8,6 +9,8 @@ import axios from 'axios';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +25,7 @@ const Login = () => {
 
     if( resp.status == 200){
       localStorage.setItem('token', resp.data.token);
-      console.log(localStorage.getItem('token'));
+      navigate('/');
     }
     
 
@@ -31,7 +34,6 @@ const Login = () => {
 
   return (
     <div>
-    <Navbar></Navbar>
     <div className='flex flex-col justify-center items-center m-10'>
         <div className='flex flex-col justify-center items-center m-10 bg-white rounded-md p-5'>
         <h2 className='text-3xl' >Login</h2>

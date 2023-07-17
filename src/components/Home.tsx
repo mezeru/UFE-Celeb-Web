@@ -9,7 +9,6 @@ export const Home = () => {
     return (
         <>
         <div className="Home">
-            <Navbar></Navbar>
 
             <div className="heroImg" >
                 <img src={ heroImg } ></img>
