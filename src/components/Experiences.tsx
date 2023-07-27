@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import { Navbar } from "./NavBar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { FighterCard } from "./Services/Fightercard";
 import { ServCardList } from "./Services/ServCardList";
-import { ServCard } from "./Services/ServCards";
 
 export const Experiences = () => {
 
