@@ -7,7 +7,6 @@ export const Auth = ({children}) => {
 
     const [user,setUser] = useState(0);
     const token = localStorage.getItem('token');
-
     useEffect(() => {
         const verify = async () => {
             try{
